@@ -7,4 +7,4 @@ tar xvf /mnt/$cudnn -C /usr/local
 pip install --upgrade pip
 pip install --upgrade tensorflow-gpu==1.1.0
 
-#pip install dill h5py hyperopt keras pandas protobuf pymongo scikit-learn seaborn keras-vis
+pip install dill h5py hyperopt keras pandas protobuf pymongo scikit-learn seaborn keras-vis
