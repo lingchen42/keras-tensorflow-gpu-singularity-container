@@ -12,7 +12,7 @@ Here are the steps to build a singularity container for keras with tf-gpu on a l
    vagrant init ubuntu/trusty64 --box-version 14.04
    ```
 
-## Set up singularity inside ubuntu virtual machine,
+## Set up singularity inside ubuntu virtual machine
 1. Enter the ubuntu virtual machine.
     ```
     cd ~/ubuntu-vm
@@ -30,8 +30,8 @@ Here are the steps to build a singularity container for keras with tf-gpu on a l
     sudo make install
     ```
 
-## Build singularity container (all done inside ubuntu-vm)
-1. Check NVIDIA driver version on the cluster, download the same version driver from NVIDIA website.
+## Build singularity container inside ubuntu-vm
+1. Check NVIDIA driver version on the cluster, download the same version driver from NVIDIA website in the vm.
     ```
     nvidia-smi
     ```
@@ -59,7 +59,7 @@ Here are the steps to build a singularity container for keras with tf-gpu on a l
     So I downloaded [NVIDIA-Linux-x86_64-384.59](http://us.download.nvidia.com/XFree86/Linux-x86_64/384.59/NVIDIA-Linux-x86_64-384.59.run). It is a bit tricky to find it.\
     But it should be http://us.download.nvidia.com/XFree86/Linux-x86_64/$VERSION/NVIDIA-Linux-x86_64-$VERSION.run
 
-2. Check cuda version on the cluster, download the corresponding cuda driver from NVIDIA website.
+2. Check cuda version on the cluster, download the corresponding cuda driver from NVIDIA website in the vm.
     ```
     nvcc --version
     ```
@@ -73,14 +73,14 @@ Here are the steps to build a singularity container for keras with tf-gpu on a l
     So I downloaded [cuda_8.0.61](https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run) from https://developer.nvidia.com/compute/cuda/8.0/Prod2/local_installers/cuda_8.0.61_375.26_linux-run.
     I found it to be OK that if I'm using a run file but the nvidia version of cuda is different from that on the cluster (375.26 != 384.59).
 
-3. Store the downloaded files and above scripts under the same folder
+3. Store the downloaded files and above scripts under the same folder in the vm.
 4. Run `sh build.sh`.
 5. Copy the resulting `tensorflow_gpu-1.1.0-cp27-linux_x86_64.img` onto the cluster. 
     [vagrant scp](https://github.com/invernizzi/vagrant-scp) can be used to copy files in vm outside. 
 6. Running the container on cluster
-```
-singularity shell --nv tensorflow_gpu-1.1.0-cp27-linux_x86_64.img
-```
+   ```
+   singularity shell --nv tensorflow_gpu-1.1.0-cp27-linux_x86_64.img
+   ```
     
 ## Other notes
 1. This is adapted from https://github.com/jdongca2003/Tensorflow-singularity-container-with-GPU-support.
