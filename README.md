@@ -83,6 +83,6 @@ singularity shell --nv tensorflow_gpu-1.1.0-cp27-linux_x86_64.img
 ```
     
 ## Other notes
-1. This is adapted from https://github.com/jdongca2003/Tensorflow-singularity-container-with-GPU-support
-2. This assumes the nvidia driver is installed on the cluster.
-3. When building the ubuntu-vm, give it 2GB memory. Otherwise, the installation of some python library may fail.
+1. This is adapted from https://github.com/jdongca2003/Tensorflow-singularity-container-with-GPU-support.
+2. This assumes that the nvidia driver is installed on the cluster.
+3. When building the ubuntu-vm, give it at least 2GB memory. Otherwise, the installation of some python libraries may fail.
